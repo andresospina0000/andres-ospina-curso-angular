@@ -4,13 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { PATH_MAINTENANCE_PAGES } from './../../commons/config/path-pages';
 import { AuthGuard } from './../../commons/guards/auth.guard';
 import { MaintenanceComponent } from './maintenance.component';
+import { MaintenanceGuard } from 'src/app/commons/guards/maintenance.guard';
 
 export const routes: Routes = [
 	{
 		path: '',
 		component: MaintenanceComponent,
-		canActivate: [AuthGuard],
-		canActivateChild: [AuthGuard],
+		canActivate: [MaintenanceGuard],
+		canActivateChild: [MaintenanceGuard],
 		children: [
 			{
 				path: PATH_MAINTENANCE_PAGES.buy.onlyPath,

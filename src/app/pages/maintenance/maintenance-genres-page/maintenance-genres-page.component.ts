@@ -61,10 +61,8 @@ export class MaintenanceGenresPageComponent implements OnInit {
 
   clickDelete(id: number): void{
 
-    console.log('Id: ' + id);
-
     this._snotifyService.confirm('¿Está seguro de eliminar el registro?', {
-			position: SnotifyPosition.rightCenter,
+			position: SnotifyPosition.centerCenter,
 			buttons: [
 				{
 					text: 'SI',
@@ -115,7 +113,7 @@ export class MaintenanceGenresPageComponent implements OnInit {
     }
 
     this._snotifyService.confirm('¿Desea guardar la información?', {
-			position: SnotifyPosition.rightCenter,
+			position: SnotifyPosition.centerCenter,
 			buttons: [
 				{
 					text: 'SI',
@@ -167,7 +165,6 @@ export class MaintenanceGenresPageComponent implements OnInit {
             this._acctionsSucces();
             this._loadGenres();
             this._snotifyService.info('El genero se creo sin problema!');
-            this._cleanForm();
           }
         },
         error: () => {
@@ -183,10 +180,6 @@ export class MaintenanceGenresPageComponent implements OnInit {
 		this.formGroup.enable();
     this.formGroup.reset();
 	}
-
-  private _cleanForm(){
-
-  }
 
   get statusField(): AbstractControl {
 		return this.formGroup.get('status')!;
