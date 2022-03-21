@@ -6,7 +6,6 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 import { IRequestChangePassword } from 'src/app/commons/services/api/user/user-api-model.interface';
 import { SnotifyService, SnotifyPosition } from 'ng-snotify';
-import { PATH_BUY_PAGES } from 'src/app/commons/config/path-pages';
 import { DataUserService } from 'src/app/commons/services/local/data-user.service';
 
 @Component({

@@ -193,6 +193,11 @@ export class MaintenanceGenresPageComponent implements OnInit {
 		return this.formGroup.get('description')!;
 	}
 
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }
 
 import { Pipe, PipeTransform } from "@angular/core";

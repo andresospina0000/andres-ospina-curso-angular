@@ -13,7 +13,6 @@ export const routes: Routes = [{ path: '', component: AccountChangePasswordPageC
     RouterModule.forChild(routes),
     SharedFormModule,
     ReactiveFormsModule,
-    SharedFormModule,
     CommonModule
   ]
 })

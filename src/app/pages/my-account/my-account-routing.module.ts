@@ -15,6 +15,13 @@ export const routes: Routes = [
 						(m) => m.AccountChangePasswordPageModule
 					)
 			},
+      {
+				path: PATH_MY_ACCOUNT_PAGES.myShopping.onlyPath, // my-account/buy-page
+				loadChildren: () =>
+					import('./account-buy-page/account-buy-page.module').then(
+						(m) => m.AccountBuyPageModule
+					)
+			},
 			{
 				path: '',
 				redirectTo: PATH_MY_ACCOUNT_PAGES.changePassword.onlyPath
