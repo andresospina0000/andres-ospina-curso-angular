@@ -56,6 +56,7 @@ export class LoginPageComponent {
 		const dataUser: IDataUser = {
 			token: response.token,
 			fullName: response.fullName,
+      email: response.email,
 			isAdmin: response.roles[0] === 'Administrator'
 		};
 		// localStorage.setItem(KEYS_WEB_STORAGE.DATA_USER, JSON.stringify(dataUser));

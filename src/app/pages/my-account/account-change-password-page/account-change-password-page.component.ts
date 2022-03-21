@@ -1,3 +1,5 @@
+import { PATH_MY_ACCOUNT_PAGES } from './../../../commons/config/path-pages';
+import jwtDecode, { IToken } from 'jwt-decode'
 import { UserApiService } from './../../../commons/services/api/user/user-api.service';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -56,7 +58,7 @@ export class AccountChangePasswordPageComponent {
 						bold: true,
 						action: (toast) => {
 							this._snotifyService.remove(toast.id);
-							//this._changePassword();
+							this._changePassword();
               this._resetForm();
 						}
 					},
@@ -73,7 +75,7 @@ export class AccountChangePasswordPageComponent {
 		this._userService.changePassword(request).subscribe({
       next: (response) => {
         if (response) this._snotifyService.info('La contraseña se cambio exitosamente!');
-        this._router.navigateByUrl(PATH_BUY_PAGES.buyPage.withSlash)
+        this._router.navigateByUrl(PATH_MY_ACCOUNT_PAGES.changePassword.withSlash)
       },
       error: () => {
         this._snotifyService.error('Hubo un problema al actualizar tu contraseña.');
@@ -84,7 +86,7 @@ export class AccountChangePasswordPageComponent {
 
 	private _getRequest(): IRequestChangePassword {
 		return {
-			email: '',
+			email: this._dataUserService.getUserEmail(),
 			oldPassword: this.oldPasswordField.value as string,
 			newPassword: this.newPasswordField.value as string
 		};

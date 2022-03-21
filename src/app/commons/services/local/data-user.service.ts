@@ -23,6 +23,16 @@ export class DataUserService {
 		return null;
 	}
 
+  getUserEmail(): string{
+
+    const dataUser = this._sessionStorageService.getItem<IDataUser>(KEYS_WEB_STORAGE.DATA_USER);
+
+    if (dataUser !== null) {
+      return dataUser.email;
+    }
+    return '';
+  }
+
 	isAdmin(): boolean | null {
 		const dataUser = this._sessionStorageService.getItem<IDataUser>(KEYS_WEB_STORAGE.DATA_USER);
 

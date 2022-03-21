@@ -7,6 +7,7 @@ export interface IRequestLogin {
 export interface IResponseLogin {
 	token: string;
 	fullName: string;
+  email: string;
 	roles: string[];
 	success: boolean;
 	errors: string[];
@@ -41,3 +42,14 @@ export interface IRequestChangePassword {
 	newPassword: string;
 }
 //#endregion
+
+
+export interface IToken {
+	name: string;
+	emailaddress: string;
+	sid: string[];
+  role: string;
+	nbf?: string;
+  exp?: string;
+  aud?: string;
+}
